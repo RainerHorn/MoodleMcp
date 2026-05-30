@@ -149,6 +149,7 @@ Unten links das Hammer-Symbol prüfen – dort sollten die Moodle-Tools erschein
 | `moodle_import_questions_xml` | Fragen aus Moodle-XML in eine Kategorie importieren |
 | `moodle_create_quiz` | Quiz-Aktivität in einem Kursabschnitt anlegen |
 | `moodle_add_quiz_questions` | Importierte/vorhandene Fragen einem Quiz hinzufügen |
+| `moodle_update_quiz` | Bestehendes Quiz bearbeiten |
 
 ### Sichtbarkeit (optional)
 

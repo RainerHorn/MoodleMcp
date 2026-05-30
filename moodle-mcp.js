@@ -111,6 +111,17 @@ const TOOLS = [
     },
   },
   {
+    name: "moodle_get_question_types",
+    description: "Listet die in Moodle installierten Fragetypen, die fuer Moodle-XML-Importe verwendet werden koennen, z.B. multichoice, cloze, ddwtos oder coderunner.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        courseid: { type: "number", description: "Kurs-ID fuer Berechtigungspruefung" },
+      },
+      required: ["courseid"],
+    },
+  },
+  {
     name: "moodle_create_question_category",
     description: "Erstellt eine Fragenkategorie in der Fragensammlung eines Kurses. Danach Moodle-XML-Fragen in diese Kategorie importieren.",
     inputSchema: {
@@ -409,6 +420,12 @@ async function executeTool(name, args) {
 
     case "moodle_get_question_categories": {
       return await callMoodle("local_aicoursecreator_get_question_categories", {
+        courseid: args.courseid,
+      });
+    }
+
+    case "moodle_get_question_types": {
+      return await callMoodle("local_aicoursecreator_get_question_types", {
         courseid: args.courseid,
       });
     }

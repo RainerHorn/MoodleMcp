@@ -144,6 +144,7 @@ Unten links das Hammer-Symbol prüfen – dort sollten die Moodle-Tools erschein
 | `moodle_set_module_visibility` | Aktivität per cmid ein- oder ausblenden |
 | `moodle_delete_module` | Aktivität per cmid löschen |
 | `moodle_get_question_categories` | Fragenkategorien eines Kurses lesen |
+| `moodle_get_question_types` | Installierte/verfügbare Moodle-Fragetypen lesen |
 | `moodle_create_question_category` | Fragenkategorie in der Kurs-Fragensammlung anlegen |
 | `moodle_import_questions_xml` | Fragen aus Moodle-XML in eine Kategorie importieren |
 | `moodle_create_quiz` | Quiz-Aktivität in einem Kursabschnitt anlegen |
@@ -233,6 +234,8 @@ https://moodle.example.de/moodle/course/view.php?id=42
 > "Lies die Module in Abschnitt 2 von Kurs 42 und lösche die irrtümlich erstellte Textseite 'Test'."
 
 **Fragen, Kategorien und Quizze:**
+> "Welche Fragetypen sind in Kurs 42 verfügbar?"
+
 > "Lege in Kurs 42 eine Fragenkategorie 'LF8 Docker Grundlagen' an."
 
 > "Importiere diese Moodle-XML-Fragen in die Kategorie 17 und erstelle daraus ein Quiz in Abschnitt 3."

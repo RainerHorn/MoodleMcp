@@ -184,6 +184,25 @@ const TOOLS = [
     },
   },
   {
+    name: "moodle_update_quiz",
+    description: "Aktualisiert Eigenschaften eines bestehenden Quiz (Name, Intro, Zeitlimit, Versuche, Bewertungsmethode, Sichtbarkeit). Nur angegebene Felder werden geaendert.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        cmid:             { type: "number", description: "Course Module ID des Quiz" },
+        name:             { type: "string", description: "Neuer Quiz-Titel (leer = nicht aendern)", default: "" },
+        intro:            { type: "string", description: "Neue HTML-Beschreibung (leer = nicht aendern)", default: "" },
+        timelimit:        { type: "number", description: "Zeitlimit in Sekunden (0 = kein Limit, -1 = nicht aendern)", default: -1 },
+        attempts:         { type: "number", description: "Max. Versuche (0 = unbegrenzt, -1 = nicht aendern)", default: -1 },
+        grademethod:      { type: "number", description: "1=hoechste, 2=Durchschnitt, 3=erste, 4=letzte Bewertung (-1 = nicht aendern)", default: -1 },
+        visible:          { type: "number", description: "1 = sichtbar, 0 = versteckt, -1 = nicht aendern", default: -1 },
+        shuffleanswers:   { type: "number", description: "1 = mischen, 0 = nicht mischen, -1 = nicht aendern", default: -1 },
+        questionsperpage: { type: "number", description: "Fragen pro Seite (-1 = nicht aendern)", default: -1 },
+      },
+      required: ["cmid"],
+    },
+  },
+  {
     name: "moodle_update_label",
     description: "Ändert den HTML-Inhalt und/oder Namen eines bestehenden Text- und Medienfelds (mod_label).",
     inputSchema: {
@@ -481,6 +500,20 @@ async function executeTool(name, args) {
         cmid:    args.cmid,
         maxmark: args.maxmark ?? 1,
         ...Object.fromEntries(questionids.map((id, i) => [`questionids[${i}]`, id])),
+      });
+    }
+
+    case "moodle_update_quiz": {
+      return await callMoodle("local_aicoursecreator_update_quiz", {
+        cmid:             args.cmid,
+        name:             args.name             ?? "",
+        intro:            args.intro            ?? "",
+        timelimit:        args.timelimit        ?? -1,
+        attempts:         args.attempts         ?? -1,
+        grademethod:      args.grademethod      ?? -1,
+        visible:          args.visible          ?? -1,
+        shuffleanswers:   args.shuffleanswers   ?? -1,
+        questionsperpage: args.questionsperpage ?? -1,
       });
     }
 

@@ -129,6 +129,9 @@ Unten links das Hammer-Symbol prüfen – dort sollten die Moodle-Tools erschein
 | `moodle_get_sections` | Alle Abschnitte eines Kurses lesen |
 | `moodle_create_section` | Kursabschnitt anlegen und optional benennen/beschreiben |
 | `moodle_get_modules` | Alle Aktivitäten eines Abschnitts mit cmid lesen |
+| `moodle_get_assign_content` | Gespeicherte HTML-Beschreibung und Metadaten einer Aufgabe rein lesend über die cmid abrufen |
+| `moodle_get_label_content` | Gespeicherten HTML-Inhalt und Metadaten eines Text- und Medienfelds rein lesend über die cmid abrufen |
+| `moodle_get_page_content` | Gespeicherten HTML-Inhalt und Metadaten einer Textseite rein lesend über die cmid abrufen |
 | `moodle_update_section` | Abschnittsname und Beschreibung setzen |
 | `moodle_create_label` | Text- und Medienfeld anlegen (Phasen-Header) |
 | `moodle_update_label` | Text- und Medienfeld bearbeiten |

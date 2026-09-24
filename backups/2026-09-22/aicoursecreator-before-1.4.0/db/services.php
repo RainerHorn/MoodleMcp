@@ -153,22 +153,6 @@ $functions = [
         'capabilities'  => 'moodle/course:view',
     ],
 
-    'local_aicoursecreator_get_assign_content' => [
-        'classname'     => 'local_aicoursecreator\external\get_assign_content',
-        'description'   => 'Returns raw stored HTML description and metadata for an existing Assignment activity.',
-        'type'          => 'read',
-        'ajax'          => false,
-        'capabilities'  => 'mod/assign:view',
-    ],
-
-    'local_aicoursecreator_get_label_content' => [
-        'classname'     => 'local_aicoursecreator\external\get_label_content',
-        'description'   => 'Returns raw stored HTML content and metadata for an existing Label activity.',
-        'type'          => 'read',
-        'ajax'          => false,
-        'capabilities'  => 'mod/label:view',
-    ],
-
     'local_aicoursecreator_get_page_content' => [
         'classname'     => 'local_aicoursecreator\external\get_page_content',
         'description'   => 'Returns raw stored HTML content and metadata for an existing Page activity.',
@@ -275,8 +259,6 @@ $services = [
             'local_aicoursecreator_update_label',
             'local_aicoursecreator_update_url',
             'local_aicoursecreator_get_modules',
-            'local_aicoursecreator_get_assign_content',
-            'local_aicoursecreator_get_label_content',
             'local_aicoursecreator_get_page_content',
             'local_aicoursecreator_update_page',
             'local_aicoursecreator_update_assign',

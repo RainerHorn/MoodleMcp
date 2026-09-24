@@ -244,6 +244,39 @@ const TOOLS = [
     },
   },
   {
+    name: "moodle_get_assign_content",
+    description: "Liest die unveränderte gespeicherte HTML-Beschreibung und Metadaten einer bestehenden Moodle-Aufgabe anhand ihrer cmid. Rein lesend; verändert keine Moodle-Daten.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        cmid: { type: "number", description: "Course Module ID der Aufgabe" },
+      },
+      required: ["cmid"],
+    },
+  },
+  {
+    name: "moodle_get_label_content",
+    description: "Liest den unveränderten gespeicherten HTML-Inhalt und die Metadaten eines bestehenden Text- und Medienfelds anhand seiner cmid. Rein lesend; verändert keine Moodle-Daten.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        cmid: { type: "number", description: "Course Module ID des Text- und Medienfelds" },
+      },
+      required: ["cmid"],
+    },
+  },
+  {
+    name: "moodle_get_page_content",
+    description: "Liest den unveränderten gespeicherten HTML-Inhalt und die Metadaten einer bestehenden Moodle-Textseite anhand ihrer cmid. Rein lesend; verändert keine Moodle-Daten.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        cmid: { type: "number", description: "Course Module ID der Textseite" },
+      },
+      required: ["cmid"],
+    },
+  },
+  {
     name: "moodle_update_page",
     description: "Ändert Titel und/oder HTML-Inhalt einer bestehenden Textseite (mod_page). Benötigt die cmid (aus moodle_get_modules oder dem Rückgabewert von moodle_create_page).",
     inputSchema: {
@@ -599,6 +632,24 @@ async function executeTool(name, args) {
       return await callMoodle("local_aicoursecreator_get_modules", {
         courseid:   args.courseid,
         sectionnum: args.sectionnum ?? -1,
+      });
+    }
+
+    case "moodle_get_assign_content": {
+      return await callMoodle("local_aicoursecreator_get_assign_content", {
+        cmid: args.cmid,
+      });
+    }
+
+    case "moodle_get_label_content": {
+      return await callMoodle("local_aicoursecreator_get_label_content", {
+        cmid: args.cmid,
+      });
+    }
+
+    case "moodle_get_page_content": {
+      return await callMoodle("local_aicoursecreator_get_page_content", {
+        cmid: args.cmid,
       });
     }
 

@@ -9,14 +9,12 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_aicoursecreator';
-$plugin->version   = 2026092201;  // Format: YYYYMMDDNN – NN bei mehreren Releases pro Tag hochzählen
+$plugin->version   = 2025092102;  // Format: YYYYMMDDNN – NN bei mehreren Releases pro Tag hochzählen
 $plugin->requires  = 2022041900;  // Moodle 4.0+
 $plugin->maturity  = MATURITY_STABLE;
-$plugin->release   = '1.4.0';
+$plugin->release   = '1.2.0';
 
 // Changelog:
-// 1.4.0 (2026092201) – Read-only Webservices für Label- und Assignment-Inhaltsrücklesung
-// 1.3.0 (2026092200) – Read-only Webservice get_page_content für vollständige Page-HTML-Rücklesung
 // 1.2.0 (2025092102) – Neues Tool: move_module (Aktivitaet innerhalb eines Abschnitts
 //   verschieben oder in einen anderen Abschnitt verschieben, ueber Moodles moveto_module()).
 // 1.1.7 (2025092101) – Bugfix: create_quiz legte keinen quiz_sections-Eintrag an, dadurch
